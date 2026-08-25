@@ -18,6 +18,7 @@ html {
   background: #131313;
   font-family: sans-serif;
   color: #b5b3b3;
+  scroll-behavior: smooth;
 }
 
 section {
@@ -121,6 +122,23 @@ header {
   color: #b5b3b3;
 }
 
+.hero__cta {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.hero__cta > .button {
+  font-size: large;
+  padding: 10px 25px;
+}
+
+@media only screen and (max-width: 768px) {
+  .hero__cta {
+    justify-content: center;
+  }
+}
+
 
 @media only screen and (max-width: 768px) {
   header {
@@ -153,7 +171,15 @@ header {
 
 .skills > .list {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.skills__heading {
+  color: #313e8c;
+  font-size: medium;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 8px 8px 0;
 }
 
 ul > li {
@@ -218,6 +244,29 @@ ul > li {
 .project > img {
   height: auto;
   width: 50%;
+}
+
+.card-title > a {
+  color: inherit;
+}
+
+.card-title > a:hover {
+  color: #313e8c;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.card-link__arrow {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.card-link:hover .card-link__arrow {
+  transform: translateX(4px);
 }
 
 @media only screen and (max-width: 768px) {
@@ -392,6 +441,10 @@ ul > li {
 /* Footer */
 footer {
   margin-top: 50px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: small;
+  color: #6a6a6d;
 }
 
 @keyframes fadein {

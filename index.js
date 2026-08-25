@@ -3,6 +3,8 @@
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
+
   document.getElementById("contact_form").addEventListener("submit", (e) => {
     e.preventDefault();
 

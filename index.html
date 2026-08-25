@@ -4,17 +4,27 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="James Hooven is a full-stack web developer specializing in React, Node.js, and WordPress. View his projects, skills, and get in touch." />
+    <meta property="og:title" content="James Hooven | Full-Stack Web Developer" />
+    <meta property="og:description"
+        content="Full-stack web developer specializing in React, Node.js, and WordPress." />
+    <meta property="og:image" content="https://jameshooven.com/images/james-hooven-1.png" />
+    <meta property="og:url" content="https://jameshooven.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="canonical" href="https://jameshooven.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="./images/james-hooven-1.png">
     <link href="https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap" rel="stylesheet">
-    <title>James Hooven's portfolio</title>
+    <title>James Hooven | Full-Stack Web Developer</title>
 </head>
 
 <body>
     <nav class="nav-bar">
         <div class="nav-bar__brand">
-            <img src="./images/james-hooven-1.png" height="auto" width="50" />
+            <img src="./images/james-hooven-1.png" height="auto" width="50" alt="James Hooven logo" />
         </div>
         <div class="nav-bar__links">
             <a href="#about">
@@ -59,71 +69,63 @@
             <h2>
                 I am a Full Stack Web Developer.
             </h2>
+            <div class="hero__cta">
+                <a href="#projects" class="button blue-btn">
+                    View My Work
+                </a>
+                <a href="#contact" class="button">
+                    Get In Touch
+                </a>
+            </div>
         </div>
 
     </header>
     <section class="about line" id="about">
         <p>
-            Full stack web developer that is focused on making an
-            enjoyable user experience on the web. I graduated
-            from Vanderbilt University Full Stack Web Development
-            Bootcamp, and have acquired many skills relating to web
-            development. The more notable skills are my ability to work
-            efficiently with JavaScript, React.js, Node.js, HTML, CSS,
-            MongoDB, SQL, and JQuery. I focus on making my websites
-            compatible with mobile responsive designs. I am looking
-            forward to utilizing my interpersonal skills from a background
-            in the service industry and my skills provide
-            added-value to an organization through technology and being
-            detail-oriented.
+            Full-stack software developer with 5+ years of professional
+            experience designing, building, and shipping scalable,
+            user-centric web and mobile applications. Skilled across the
+            modern JavaScript ecosystem (React, React Native, Node.js,
+            Next.js) and back-end/CMS technologies (PHP, WordPress, Django,
+            MongoDB, SQL). Graduate of Vanderbilt University's Full-Stack
+            Web Development Bootcamp, with a proven track record leading
+            projects independently as well as collaborating in agile,
+            cross-functional teams.
         </p>
         <aside class="skills">
             <div class="list">
+                <h3 class="skills__heading">Languages &amp; Frameworks</h3>
                 <ul>
                     <li>
-                        <span class="chevron right"></span> React
+                        <span class="chevron right"></span> JavaScript (ES6)
                     </li>
                     <li>
-                        <span class="chevron right"></span> React native
+                        <span class="chevron right"></span> React &amp; React Native
                     </li>
                     <li>
-                        <span class="chevron right"></span> WordPress
+                        <span class="chevron right"></span> Node.js &amp; Next.js
                     </li>
                     <li>
-                        <span class="chevron right"></span> HTML
-                    </li>
-                    <li>
-                        <span class="chevron right"></span> CSS
-                    </li>
-                    <li>
-                        <span class="chevron right"></span> JavaScript
+                        <span class="chevron right"></span> Python &amp; Django
                     </li>
                 </ul>
-
-
             </div>
             <div class="list">
+                <h3 class="skills__heading">Web, Data &amp; Tools</h3>
                 <ul>
                     <li>
-                        <span class="chevron right"></span> Node.js
+                        <span class="chevron right"></span> HTML &amp; CSS
                     </li>
                     <li>
-                        <span class="chevron right"></span> Python
+                        <span class="chevron right"></span> WordPress &amp; PHP
                     </li>
                     <li>
-                        <span class="chevron right"></span> Django
+                        <span class="chevron right"></span> MongoDB &amp; SQL
                     </li>
                     <li>
-                        <span class="chevron right"></span> PHP
-                    </li>
-                    <li>
-                        <span class="chevron right"></span> MySQL
-                    </li>
-                    <li>
-                        <span class="chevron right"></span> MongoDB
+                        <span class="chevron right"></span> Git
                     </li>
                 </ul>
-
             </div>
         </aside>
     </section>
@@ -131,18 +133,28 @@
         <div class="project">
             <div class="card">
                 <h1 class="card-title">
-                    New Lens
+                    <a href="https://www.newlensleadership.com/" target="_blank" rel="noopener noreferrer">
+                        New Lens
+                    </a>
                 </h1>
                 <div class="card-body">
                     <p>
-                        Executive training tool for Fortune 500 companies.
+                        Executive leadership training platform for Fortune 500
+                        companies. Lead developer owning feature development,
+                        bug resolution, and platform stability, built with
+                        React and Next.js.
                     </p>
+                    <a class="card-link" href="https://www.newlensleadership.com/" target="_blank"
+                        rel="noopener noreferrer">
+                        View Live Site <span class="card-link__arrow">&rarr;</span>
+                    </a>
                 </div>
             </div>
-            <img src="./images/newlensleadership.png" height="auto" width="50%" />
+            <img src="./images/newlensleadership.png" height="auto" width="50%"
+                alt="New Lens executive leadership training platform screenshot" />
         </div>
         <div class="project">
-            <img src="./images/go4.png" height="auto" width="50%" />
+            <img src="./images/go4.png" height="auto" width="50%" alt="Go4 healthcare staffing website screenshot" />
             <div class="card">
                 <h1 class="card-title">
                     Go4
@@ -166,7 +178,170 @@
                     </p>
                 </div>
             </div>
-            <img src="./images/Excaliper.png" height="auto" width="50%" />
+            <img src="./images/Excaliper.png" height="auto" width="50%" alt="Excaliper quizzing and grade tracking app screenshot" />
+        </div>
+        <div class="project">
+            <img src="./images/southeastelectric.png" height="auto" width="50%"
+                alt="Southeast Electric Service website screenshot" />
+            <div class="card">
+                <h1 class="card-title">
+                    <a href="https://southeastelectricjc.com/" target="_blank" rel="noopener noreferrer">
+                        Southeast Electric
+                    </a>
+                </h1>
+                <div class="card-body">
+                    <p>
+                        Marketing website for a licensed electrical contractor serving
+                        construction, remodel, commercial, and residential clients across
+                        Johnson City, Kingsport, and Bristol, TN.
+                    </p>
+                    <a class="card-link" href="https://southeastelectricjc.com/" target="_blank"
+                        rel="noopener noreferrer">
+                        View Live Site <span class="card-link__arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <div class="card">
+                <h1 class="card-title">
+                    <a href="https://ccforestry.com/" target="_blank" rel="noopener noreferrer">
+                        CC Forestry
+                    </a>
+                </h1>
+                <div class="card-body">
+                    <p>
+                        Marketing website for a family-owned forestry and land management
+                        company offering land clearing, forestry mulching, and brush removal
+                        services across East Tennessee.
+                    </p>
+                    <a class="card-link" href="https://ccforestry.com/" target="_blank" rel="noopener noreferrer">
+                        View Live Site <span class="card-link__arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+            <img src="./images/ccforestry.png" height="auto" width="50%" alt="CC Forestry website screenshot" />
+        </div>
+        <div class="project">
+            <img src="./images/sofha.png" height="auto" width="50%" alt="SOFHA healthcare website screenshot" />
+            <div class="card">
+                <h1 class="card-title">
+                    <a href="https://sofha.net/" target="_blank" rel="noopener noreferrer">
+                        SOFHA
+                    </a>
+                </h1>
+                <div class="card-body">
+                    <p>
+                        Website for State of Franklin Healthcare Associates, a multi-specialty
+                        medical practice offering internal medicine, OB/GYN, pediatrics, and
+                        walk-in clinics across Northeast Tennessee and Southwest Virginia.
+                    </p>
+                    <a class="card-link" href="https://sofha.net/" target="_blank" rel="noopener noreferrer">
+                        View Live Site <span class="card-link__arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <div class="card">
+                <h1 class="card-title">
+                    <a href="https://lyceum-fellowship.org/" target="_blank" rel="noopener noreferrer">
+                        Lyceum Fellowship
+                    </a>
+                </h1>
+                <div class="card-body">
+                    <p>
+                        Website for the Lyceum Fellowship, a national traveling fellowship in
+                        architecture that has run an annual student design competition and
+                        awarded travel grants since 1985.
+                    </p>
+                    <a class="card-link" href="https://lyceum-fellowship.org/" target="_blank"
+                        rel="noopener noreferrer">
+                        View Live Site <span class="card-link__arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+            <img src="./images/lyceum.png" height="auto" width="50%" alt="Lyceum Fellowship website screenshot" />
+        </div>
+        <div class="project">
+            <img src="./images/aic.png" height="auto" width="50%"
+                alt="Appalachian Independence Center website screenshot" />
+            <div class="card">
+                <h1 class="card-title">
+                    <a href="https://www.aicadvocates.org/" target="_blank" rel="noopener noreferrer">
+                        Appalachian Independence Center
+                    </a>
+                </h1>
+                <div class="card-body">
+                    <p>
+                        Website for a nonprofit disability advocacy organization providing
+                        peer counseling, independent living skills training, and community
+                        services across Southwest Virginia.
+                    </p>
+                    <a class="card-link" href="https://www.aicadvocates.org/" target="_blank"
+                        rel="noopener noreferrer">
+                        View Live Site <span class="card-link__arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <div class="card">
+                <h1 class="card-title">
+                    <a href="https://www.callfishertoday.com/" target="_blank" rel="noopener noreferrer">
+                        Fisher Plumbing Heating &amp; Air
+                    </a>
+                </h1>
+                <div class="card-body">
+                    <p>
+                        Marketing website for a family-owned plumbing, heating, and water
+                        conditioning contractor serving Meadville, Edinboro, and Conneaut
+                        Lake, PA for 35 years.
+                    </p>
+                    <a class="card-link" href="https://www.callfishertoday.com/" target="_blank"
+                        rel="noopener noreferrer">
+                        View Live Site <span class="card-link__arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+            <img src="./images/fisher.png" height="auto" width="50%"
+                alt="Fisher Plumbing Heating and Air website screenshot" />
+        </div>
+        <div class="project">
+            <img src="./images/reliable.png" height="auto" width="50%"
+                alt="Reliable Plumbing and Heating Services website screenshot" />
+            <div class="card">
+                <h1 class="card-title">
+                    <a href="https://reliableforyou.com/" target="_blank" rel="noopener noreferrer">
+                        Reliable Plumbing &amp; Heating
+                    </a>
+                </h1>
+                <div class="card-body">
+                    <p>
+                        Marketing website for a family-owned plumbing and heating company
+                        serving Seaside, Monterey, Salinas, and Santa Cruz, CA since 1987.
+                    </p>
+                    <a class="card-link" href="https://reliableforyou.com/" target="_blank"
+                        rel="noopener noreferrer">
+                        View Live Site <span class="card-link__arrow">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <div class="card">
+                <h1 class="card-title">
+                    MIT ICEO
+                </h1>
+                <div class="card-body">
+                    <p>
+                        Website for MIT's Institute Community &amp; Equity Office, highlighting
+                        diversity, equity, and inclusion programs and initiatives across the
+                        MIT community.
+                    </p>
+                </div>
+            </div>
+            <img src="./images/MIT-ICEO.png" height="auto" width="50%" alt="MIT ICEO website screenshot" />
         </div>
     </section>
     <form id="contact_form">
@@ -193,11 +368,8 @@
 
         </section>
     </form>
-    <section class="Resume" id="resume">
-
-    </section>
     <footer>
-
+        <p>&copy; <span id="year"></span> James Hooven. All rights reserved.</p>
     </footer>
 </body>
 
