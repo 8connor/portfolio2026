@@ -166,7 +166,7 @@ header {
 .skills {
   width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .skills > .list {
@@ -219,6 +219,7 @@ ul > li {
 
   .skills {
     width: 100%;
+    flex-direction: column;
     padding-top: 100px;
   }
 }
