@@ -46,7 +46,7 @@ function initHeroScene(container) {
 
   const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
   camera.position.set(0, 1.5, CAMERA_DISTANCE);
-  camera.lookAt(0, 0.5, -0.05);
+  camera.lookAt(0, 0.12, -0.05);
 
   // ---- Lights -----------------------------------------------------------
   scene.add(new THREE.HemisphereLight(0x8aa0ff, 0x0a0a0c, 0.85));
@@ -472,17 +472,24 @@ function initHeroScene(container) {
     );
     const frameHalfWidth = THREE.MathUtils.lerp(
       FRAME_HALF_WIDTH,
-      FRAME_HALF_WIDTH * 0.52,
+      FRAME_HALF_WIDTH * 0.48,
       mobileT
     );
     const horizontalFov = 2 * Math.atan(frameHalfWidth / CAMERA_DISTANCE);
 
-    const fovAspect = Math.max(aspect, 0.6);
-    const verticalFov =
-      2 * Math.atan(Math.tan(horizontalFov / 2) / fovAspect);
-    camera.fov = THREE.MathUtils.radToDeg(verticalFov);
+    // Derive vertical FOV from the REAL aspect so the horizontal lock is
+    // exact at every screen size — using a clamped/fudged aspect here (as
+    // a previous version did) throws off the horizontal result and crops
+    // the laptop's edges on narrow phone aspect ratios. A generous vertical
+    // FOV on tall narrow screens is harmless — it just shows more empty
+    // space above/below a small, centered object — so it isn't capped,
+    // beyond a loose safety ceiling for degenerate aspect ratios.
+    const verticalFov = 2 * Math.atan(Math.tan(horizontalFov / 2) / aspect);
+    camera.fov = Math.min(THREE.MathUtils.radToDeg(verticalFov), 100);
 
-    const lookY = THREE.MathUtils.lerp(0.5, 0.74, mobileT);
+    // Lower look targets push the laptop toward the top of the hero rather
+    // than sitting dead-center.
+    const lookY = THREE.MathUtils.lerp(0.12, 0.32, mobileT);
     camera.lookAt(0, lookY, -0.05);
 
     camera.updateProjectionMatrix();
