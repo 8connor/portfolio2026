@@ -9,6 +9,26 @@ document.addEventListener("DOMContentLoaded", () => {
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
+  const scrollProgressEl = document.getElementById("scrollProgress");
+  let progressTicking = false;
+
+  const updateScrollProgress = () => {
+    const scrollable =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    scrollProgressEl.style.width = `${progress}%`;
+    progressTicking = false;
+  };
+
+  updateScrollProgress();
+
+  window.addEventListener("scroll", () => {
+    if (!progressTicking) {
+      requestAnimationFrame(updateScrollProgress);
+      progressTicking = true;
+    }
+  });
+
   const typewriterEl = document.getElementById("typewriter");
   const roles = [
     "Software Engineer.",
