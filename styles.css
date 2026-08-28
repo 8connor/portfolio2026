@@ -434,7 +434,7 @@ ul > li {
 }
 
 .card-link {
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 5px;
   margin-top: auto;
@@ -457,6 +457,14 @@ ul > li {
 
   .projects__grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-card__overlay {
+    display: none;
+  }
+
+  .card-link {
+    display: inline-flex;
   }
 }
 
