@@ -66,7 +66,7 @@
                 James Hooven.
             </h1>
             <h2>
-                I am a Software Engineer.
+                I am a <span class="typewriter" id="typewriter">Software Engineer.</span>
             </h2>
             <div class="hero__cta">
                 <a href="#projects" class="button blue-btn">
@@ -77,13 +77,15 @@
                 </a>
             </div>
         </div>
-
+        <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+            <span class="scroll-cue__chevron"></span>
+        </a>
     </header>
     <section class="about line" id="about">
-        <p>
+        <p class="reveal">
             Software Engineer with 5+ years of professional experience designing, building, and shipping scalable, user-centric web and mobile applications. Skilled across the modern JavaScript ecosystem (React, React Native, Node.js, Next.js) and back-end/CMS technologies (PHP, WordPress, Django, MongoDB, SQL). Actively integrates AI-assisted development tools, including GitHub Copilot, Claude, and Cursor, into daily workflows to accelerate delivery, improve code quality, and streamline debugging and documentation. Graduate of Vanderbilt University's Full-Stack Web Development Bootcamp. Proven track record leading projects independently as well as collaborating in agile, cross-functional teams.
         </p>
-        <aside class="skills">
+        <aside class="skills reveal" style="transition-delay: 0.15s">
             <div class="list">
                 <h3 class="skills__heading">Languages &amp; Frameworks</h3>
                 <ul>
@@ -121,6 +123,7 @@
         </aside>
     </section>
     <section class="projects line" id="projects">
+        <div class="projects__grid">
         <div class="project-card">
             <div class="project-card__image">
                 <img src="./images/newlensleadership.png"
@@ -471,10 +474,11 @@
                 </p>
             </div>
         </div>
+        </div>
     </section>
     <form id="contact_form">
         <section class="contact line" id="contact">
-            <div class="contact__title">
+            <div class="contact__title reveal">
                 <h1>
                     Contact Me
                 </h1>
@@ -482,7 +486,7 @@
             <div id="thank-you">
                 <h2>Thank you for contacting me!</h2>
             </div>
-            <div id="contact-inputs">
+            <div id="contact-inputs" class="reveal" style="transition-delay: 0.15s">
                 <input type="hidden" name="contactNum" id="contactNum" value="">
                 <input id="email" placeholder="Email" name="email" type="email" required />
                 <input id="name" placeholder="Name" name="name" type="text" required />
