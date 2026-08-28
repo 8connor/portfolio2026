@@ -110,15 +110,26 @@ a {
 /* Hero */
 header {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 90vh;
+  overflow: hidden;
   animation: fadein 2s;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .scroll-cue {
   position: absolute;
+  z-index: 2;
   bottom: 40px;
   left: 50%;
   display: flex;
@@ -126,7 +137,8 @@ header {
   justify-content: center;
   width: 36px;
   height: 36px;
-  border: 2px solid #6a6a6d;
+  background: rgba(19, 19, 19, 0.35);
+  border: 2px solid #b5b3b3;
   border-radius: 50%;
   animation: bounce 2.4s infinite;
   transition: border-color 0.3s;
@@ -154,10 +166,17 @@ header {
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .scroll-cue {
-    display: none;
-  }
+.hero__scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__scene canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* .hero__intro */
@@ -176,47 +195,6 @@ header {
   margin-left: 0;
   font-size: 50px;
   color: #b5b3b3;
-}
-
-.typewriter::after {
-  content: "";
-  display: inline-block;
-  width: 3px;
-  height: 0.9em;
-  margin-left: 4px;
-  background: #313e8c;
-  vertical-align: -0.1em;
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-.hero__cta {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.hero__cta > .button {
-  font-size: large;
-  padding: 10px 25px;
-}
-
-@media only screen and (max-width: 768px) {
-  .hero__cta {
-    justify-content: center;
-  }
-}
-
-
-@media only screen and (max-width: 768px) {
-  header {
-    text-align: center;
-  }
 }
 
 /* About */
@@ -573,16 +551,6 @@ ul > li {
   }
 }
 
-.button:hover {
-  background-color: #cc8434;
-  color: #b5b3b3 !important;
-  transition: all 0.5s;
-}
-
-.button:not(.blue-btn):hover {
-  color: #313e8c !important;
-}
-
 .button {
   background: transparent;
   cursor: pointer;
@@ -593,14 +561,10 @@ ul > li {
   user-select: none;
 }
 
-.blue-btn {
+.button:hover {
+  background-color: #cc8434;
   color: #313e8c !important;
-  border: #313e8c solid 2px;
-}
-
-.blue-btn:hover {
-  background-color: #313e8c;
-  color: #cc8434 !important;
+  transition: all 0.5s;
 }
 
 .btn-big {
@@ -651,10 +615,6 @@ footer {
   }
 
   .scroll-cue {
-    animation: none;
-  }
-
-  .typewriter::after {
     animation: none;
   }
 }
