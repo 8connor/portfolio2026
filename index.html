@@ -59,7 +59,8 @@
         </div>
     </nav>
     <header>
-        <div class="hero__intro">
+        <div class="hero__scene" id="hero3d" aria-hidden="true"></div>
+        <div class="hero__intro visually-hidden">
             <h3>
                 Welcome, my name is
             </h3>
@@ -67,16 +68,8 @@
                 James Hooven.
             </h1>
             <h2>
-                I am a <span class="typewriter" id="typewriter">Software Engineer.</span>
+                I am a Software Engineer.
             </h2>
-            <div class="hero__cta">
-                <a href="#projects" class="button blue-btn">
-                    View My Work
-                </a>
-                <a href="#contact" class="button">
-                    Get In Touch
-                </a>
-            </div>
         </div>
         <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
             <span class="scroll-cue__chevron"></span>
@@ -520,5 +513,13 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
 </script>
 <script type="text/javascript" src="./index.js"></script>
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    }
+}
+</script>
+<script type="module" src="./hero3d.js"></script>
 
 </html>
