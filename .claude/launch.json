@@ -1,0 +1,21 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio-static",
+      "runtimeExecutable": "powershell.exe",
+      "runtimeArgs": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\Users\\conno\\AppData\\Local\\Temp\\claude\\C--Users-conno-OneDrive-Desktop-portfolio2023\\682ef218-ff9a-4201-877d-be7f2de3d6c5\\scratchpad\\static-server.ps1",
+        "-RootPath",
+        "C:\\Users\\conno\\OneDrive\\Desktop\\portfolio2023",
+        "-Port",
+        "8734"
+      ],
+      "port": 8734
+    }
+  ]
+}
