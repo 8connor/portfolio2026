@@ -549,6 +549,30 @@ ul > li {
   color: #b5b3b3;
 }
 
+@media only screen and (max-width: 768px) {
+  .card-link {
+    justify-content: center;
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 20px;
+    border: #cc8434 solid 2px;
+    border-radius: 5px;
+    color: #cc8434;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+
+  .card-link__arrow {
+    display: none;
+  }
+
+  .card-link:active {
+    background-color: #cc8434;
+    color: #b5b3b3;
+  }
+}
+
 .button:hover {
   background-color: #cc8434;
   color: #b5b3b3 !important;
