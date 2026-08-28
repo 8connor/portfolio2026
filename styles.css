@@ -567,9 +567,9 @@ ul > li {
     display: none;
   }
 
-  .card-link:active {
+  .card-link:hover {
     background-color: #cc8434;
-    color: #b5b3b3;
+    color: #313e8c;
   }
 }
 
