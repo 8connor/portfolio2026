@@ -241,7 +241,12 @@ header {
   font-size: medium;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin: 8px 8px 0;
+  margin: 8px 8px 16px;
+}
+
+ul {
+  column-count: 2;
+  column-gap: 30px;
 }
 
 ul > li {
@@ -249,6 +254,7 @@ ul > li {
   list-style-type: none;
   margin: 8px;
   padding-left: calc(0.45em + 5px);
+  break-inside: avoid;
 }
 
 .chevron {
@@ -296,6 +302,10 @@ ul > li {
     width: 230px;
   }
 
+  .list ul {
+    column-count: 1;
+  }
+
   .skills__heading {
     text-align: center;
   }
@@ -305,6 +315,36 @@ ul > li {
 .projects {
   position: relative;
   padding-top: 50px;
+}
+
+.projects__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto 60px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat__number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #313e8c;
+}
+
+.stat__label {
+  margin-top: 6px;
+  color: #6a6a6d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
 }
 
 .projects__grid {
@@ -399,6 +439,11 @@ ul > li {
 }
 
 @media only screen and (max-width: 768px) {
+  .projects__stats {
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
   .projects__grid {
     grid-template-columns: 1fr;
   }
