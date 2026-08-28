@@ -22,7 +22,6 @@ function initHeroScene(container) {
     accentBlue: "#4f6fd8",
     accentOrange: "204, 132, 52",
     text: "#b5b3b3",
-    comment: "#6a6a6d",
   };
 
   // Whether the pointer is currently over the screen mesh — drives the
@@ -311,7 +310,7 @@ function initHeroScene(container) {
     const centerX = width / 2;
     let y = height / 2 - 64;
 
-    screenCtx.fillStyle = COLOR.comment;
+    screenCtx.fillStyle = "#ffffff";
     screenCtx.font = '400 23px "Segoe UI", sans-serif';
     screenCtx.fillText("Welcome, my name is", centerX, y);
 
@@ -472,7 +471,7 @@ function initHeroScene(container) {
     );
     const frameHalfWidth = THREE.MathUtils.lerp(
       FRAME_HALF_WIDTH,
-      FRAME_HALF_WIDTH * 0.48,
+      FRAME_HALF_WIDTH * 0.43,
       mobileT
     );
     const horizontalFov = 2 * Math.atan(frameHalfWidth / CAMERA_DISTANCE);
