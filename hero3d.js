@@ -32,7 +32,26 @@ function initHeroScene(container) {
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.domElement.style.opacity = "0";
+  renderer.domElement.style.transition = prefersReducedMotion
+    ? "none"
+    : "opacity 0.6s ease";
   container.appendChild(renderer.domElement);
+
+  // Cross-fades the CSS loader placeholder into the real canvas once the
+  // scene has actually painted a frame, instead of a jarring pop-in.
+  let revealed = false;
+  function revealScene() {
+    if (revealed) return;
+    revealed = true;
+    renderer.domElement.style.opacity = "1";
+    const loaderEl = document.getElementById("heroLoader");
+    if (loaderEl) {
+      loaderEl.style.opacity = "0";
+      loaderEl.style.pointerEvents = "none";
+      setTimeout(() => loaderEl.remove(), 700);
+    }
+  }
 
   const scene = new THREE.Scene();
 
@@ -574,6 +593,7 @@ function initHeroScene(container) {
       (targetGlowOpacity - glow.material.opacity) * 0.08;
 
     renderer.render(scene, camera);
+    revealScene();
   }
 
   function stop() {
@@ -585,6 +605,7 @@ function initHeroScene(container) {
 
   if (prefersReducedMotion) {
     renderer.render(scene, camera);
+    revealScene();
   } else {
     animate();
 
