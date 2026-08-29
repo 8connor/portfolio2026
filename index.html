@@ -59,7 +59,18 @@
         </div>
     </nav>
     <header>
-        <div class="hero__scene" id="hero3d" aria-hidden="true"></div>
+        <div class="hero__scene" id="hero3d" aria-hidden="true">
+            <div class="hero__loader" id="heroLoader">
+                <div class="hero__loader-glow"></div>
+                <div class="hero__loader-content">
+                    <div class="hero__loader-laptop">
+                        <div class="hero__loader-screen"></div>
+                        <div class="hero__loader-base"></div>
+                    </div>
+                    <p class="hero__loader-label">Loading&hellip;</p>
+                </div>
+            </div>
+        </div>
         <div class="hero__intro visually-hidden">
             <h3>
                 Welcome, my name is
@@ -70,7 +81,39 @@
             <h2>
                 I am a Software Engineer.
             </h2>
+            <div class="hero__cta">
+                <a href="#projects" class="button">
+                    View My Work
+                </a>
+                <a href="#contact" class="button">
+                    Get In Touch
+                </a>
+            </div>
         </div>
+        <noscript>
+            <style>
+                .hero__scene {
+                    display: none;
+                }
+
+                .hero__intro.visually-hidden {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: auto;
+                    height: auto;
+                    min-height: 90vh;
+                    margin: 0;
+                    padding: 60px 20px;
+                    overflow: visible;
+                    clip: auto;
+                    white-space: normal;
+                    text-align: center;
+                }
+            </style>
+        </noscript>
         <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
             <span class="scroll-cue__chevron"></span>
         </a>
