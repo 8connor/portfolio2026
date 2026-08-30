@@ -290,7 +290,7 @@ header {
   position: absolute;
   z-index: 2;
   left: 50%;
-  bottom: 100px;
+  bottom: 230px;
   transform: translateX(-50%);
   display: flex;
   flex-wrap: wrap;
@@ -309,7 +309,7 @@ header {
 
 @media only screen and (max-width: 480px) {
   .hero__cta {
-    bottom: 80px;
+    bottom: 180px;
     gap: 10px;
   }
 
@@ -695,6 +695,16 @@ a.skill__link:hover .skill__icon {
   background-color: #cc8434;
   color: #313e8c !important;
   transition: all 0.5s;
+}
+
+.button--blue {
+  border-color: #313e8c;
+  color: #313e8c !important;
+}
+
+.button--blue:hover {
+  background-color: #313e8c;
+  color: #cc8434 !important;
 }
 
 .btn-big {

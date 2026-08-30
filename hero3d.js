@@ -20,13 +20,8 @@ function initHeroScene(container) {
   // ---- Palette (matches styles.css) ----------------------------------
   const COLOR = {
     accentBlue: "#4f6fd8",
-    accentOrange: "204, 132, 52",
     text: "#b5b3b3",
   };
-
-  // Whether the pointer is currently over the screen mesh — drives the
-  // "Say hello" hint's brightness and the glow's intensity.
-  let isHovering = false;
 
   // ---- Renderer / scene / camera --------------------------------------
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -309,16 +304,6 @@ function initHeroScene(container) {
 
   let typedRole = prefersReducedMotion ? roles[0] : "";
 
-  function drawRoundedRect(ctx, x, y, w, h, r) {
-    ctx.beginPath();
-    ctx.moveTo(x + r, y);
-    ctx.arcTo(x + w, y, x + w, y + h, r);
-    ctx.arcTo(x + w, y + h, x, y + h, r);
-    ctx.arcTo(x, y + h, x, y, r);
-    ctx.arcTo(x, y, x + w, y, r);
-    ctx.closePath();
-  }
-
   function drawScreen(showCursor, elapsed) {
     const { width, height } = screenCanvas;
     screenCtx.fillStyle = "#0b0f17";
@@ -362,41 +347,6 @@ function initHeroScene(container) {
         cursorHeight
       );
     }
-
-    y += 48;
-    const hintText = "Say hello →";
-    const hintFontSize = 17;
-    screenCtx.font = `700 ${hintFontSize}px "Segoe UI", sans-serif`;
-    const hintTextWidth = screenCtx.measureText(hintText).width;
-
-    // A slow breathing pulse gives the button-like chip a "tap me" cue on
-    // touch devices, where there's no hover state to lean on.
-    const pulse = prefersReducedMotion
-      ? 1
-      : 0.72 + Math.sin(elapsed * 2.2) * 0.18;
-    const chipAlpha = isHovering ? 1 : pulse;
-    const chipScale = isHovering ? 1.06 : 1 + (pulse - 0.72) * 0.06;
-
-    const paddingX = 18;
-    const paddingY = 10;
-    const chipW = (hintTextWidth + paddingX * 2) * chipScale;
-    const chipH = (hintFontSize + paddingY * 2) * chipScale;
-    const textCenterY = y - hintFontSize * 0.32;
-
-    drawRoundedRect(
-      screenCtx,
-      centerX - chipW / 2,
-      textCenterY - chipH / 2,
-      chipW,
-      chipH,
-      chipH / 2
-    );
-    screenCtx.strokeStyle = `rgba(${COLOR.accentOrange}, ${chipAlpha})`;
-    screenCtx.lineWidth = 2;
-    screenCtx.stroke();
-
-    screenCtx.fillStyle = `rgba(${COLOR.accentOrange}, ${chipAlpha})`;
-    screenCtx.fillText(hintText, centerX, y);
 
     const vignette = screenCtx.createRadialGradient(
       centerX,
@@ -531,47 +481,6 @@ function initHeroScene(container) {
     });
   }
 
-  // ---- Screen click-through: the display doubles as a "Contact" shortcut
-  const raycaster = new THREE.Raycaster();
-  const pointerNDC = new THREE.Vector2();
-
-  function pointerToNDC(event) {
-    const rect = renderer.domElement.getBoundingClientRect();
-    pointerNDC.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-    pointerNDC.y = -(((event.clientY - rect.top) / rect.height) * 2 - 1);
-  }
-
-  function isPointerOnScreen() {
-    raycaster.setFromCamera(pointerNDC, camera);
-    return raycaster.intersectObject(screenFace, false).length > 0;
-  }
-
-  container.addEventListener("click", (e) => {
-    pointerToNDC(e);
-    if (isPointerOnScreen()) {
-      const contact = document.getElementById("contact");
-      if (contact) {
-        contact.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-  });
-
-  if (supportsHover) {
-    container.addEventListener("pointermove", (e) => {
-      pointerToNDC(e);
-      const hovering = isPointerOnScreen();
-      if (hovering !== isHovering) {
-        isHovering = hovering;
-        container.style.cursor = hovering ? "pointer" : "";
-      }
-    });
-
-    container.addEventListener("pointerleave", () => {
-      isHovering = false;
-      container.style.cursor = "";
-    });
-  }
-
   // ---- Animation loop -----------------------------------------------
   const clock = new THREE.Clock();
   let rafId = null;
@@ -587,10 +496,6 @@ function initHeroScene(container) {
     rig.rotation.x += (targetRotX - rig.rotation.x) * 0.04;
     rig.rotation.z = Math.sin(elapsed * 0.4) * 0.008;
     rig.position.y = Math.sin(elapsed * 0.6) * 0.03;
-
-    const targetGlowOpacity = isHovering ? 0.85 : 0.55;
-    glow.material.opacity +=
-      (targetGlowOpacity - glow.material.opacity) * 0.08;
 
     renderer.render(scene, camera);
     revealScene();
