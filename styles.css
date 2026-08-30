@@ -286,19 +286,37 @@ header {
   color: #b5b3b3;
 }
 
-/* Only ever visible via the <noscript> override above — a functional
-   fallback for browsers without JavaScript, where the 3D hero can't run. */
 .hero__cta {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 100px;
+  transform: translateX(-50%);
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
-  margin-top: 30px;
+  width: max-content;
+  max-width: calc(100% - 40px);
 }
 
 .hero__cta > .button {
   font-size: large;
   padding: 10px 25px;
+  background: rgba(19, 19, 19, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+@media only screen and (max-width: 480px) {
+  .hero__cta {
+    bottom: 80px;
+    gap: 10px;
+  }
+
+  .hero__cta > .button {
+    font-size: medium;
+    padding: 8px 16px;
+  }
 }
 
 /* About */
