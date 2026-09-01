@@ -8,6 +8,7 @@ if (container) {
   } catch (err) {
     console.warn("Hero 3D scene failed to initialize:", err);
     container.style.display = "none";
+    document.querySelector(".hero__intro")?.classList.add("hero__intro--fallback");
   }
 }
 
