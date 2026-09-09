@@ -58,6 +58,12 @@ function initHeroScene(container) {
   const FRAME_HALF_WIDTH = 2.1;
   const baseHorizontalFov = 2 * Math.atan(FRAME_HALF_WIDTH / CAMERA_DISTANCE);
 
+  // Ultrawide ceiling for the aspect ratio fed into the vertical-FOV solve
+  // below. Past this point we stop tightening the vertical FOV (which would
+  // zoom the whole rig up and shove the laptop into the nav bar) and instead
+  // just reveal extra horizontal space on 21:9/32:9 monitors.
+  const WIDE_FOV_ASPECT_CAP = 1.9;
+
   const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
   camera.position.set(0, 1.5, CAMERA_DISTANCE);
   camera.lookAt(0, 0.12, -0.05);
@@ -453,7 +459,11 @@ function initHeroScene(container) {
     // FOV on tall narrow screens is harmless — it just shows more empty
     // space above/below a small, centered object — so it isn't capped,
     // beyond a loose safety ceiling for degenerate aspect ratios.
-    const verticalFov = 2 * Math.atan(Math.tan(horizontalFov / 2) / aspect);
+    const verticalFov =
+      2 *
+      Math.atan(
+        Math.tan(horizontalFov / 2) / Math.min(aspect, WIDE_FOV_ASPECT_CAP)
+      );
     camera.fov = Math.min(THREE.MathUtils.radToDeg(verticalFov), 100);
 
     // Lower look targets push the laptop toward the top of the hero rather
